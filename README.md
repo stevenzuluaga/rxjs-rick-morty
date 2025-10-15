@@ -1,98 +1,167 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 RxJS Rick & Morty API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div align="center">
+  <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" width="300" alt="Rick and Morty Logo" />
+  
+  <p>Una API RESTful construida con <strong>NestJS</strong> y <strong>RxJS</strong> que consume la <a href="https://rickandmortyapi.com/">Rick and Morty API</a></p>
+  
+  <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white" alt="RxJS" />
+  <img src="https://img.shields.io/badge/Rick%20and%20Morty-97CE4C?style=for-the-badge&logo=adultswim&logoColor=white" alt="Rick and Morty" />
+</div>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📖 Descripción
 
-## Description
+Este proyecto es una API REST desarrollada con **NestJS** y **TypeScript** que utiliza **RxJS** para manejar operaciones reactivas. La aplicación consume la API pública de Rick and Morty para proporcionar información sobre los personajes de la serie.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### ✨ Características
 
-## Project setup
+- 🔄 **Programación Reactiva** con RxJS
+- 🛡️ **Manejo de Errores** robusto con reintentos automáticos
+- ⏱️ **Timeout** configurado para las peticiones HTTP
+- 📊 **Paginación** y filtrado de personajes
+- 🧪 **Testing** completo con Jest
+- 📝 **Validación** de datos con class-validator
+- 🔍 **Logging** detallado para debugging
 
+## 🛠️ Stack Tecnológico
+
+- **Framework**: NestJS
+- **Lenguaje**: TypeScript
+- **Programación Reactiva**: RxJS
+- **HTTP Client**: Axios
+- **Validación**: class-validator & class-transformer
+- **Linting**: ESLint
+
+## 📋 Prerequisitos
+
+- **Node.js** >= 18
+- **npm** >= 8
+
+## ⚙️ Instalación
+
+1. **Clona el repositorio**
+   ```bash
+   git clone <repository-url>
+   cd rxjs-rick-morty
+   ```
+
+2. **Instala las dependencias**
+   ```bash
+   npm install
+   ```
+
+## 🚀 Cómo ejecutar el proyecto
+
+### Modo Desarrollo
 ```bash
-$ npm install
+# Inicia el servidor en modo desarrollo con hot reload
+npm run start:dev
 ```
 
-## Compile and run the project
-
+### Modo Producción
 ```bash
-# development
-$ npm run start
+# Construye el proyecto
+npm run build
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Inicia el servidor en modo producción
+npm run start:prod
 ```
 
-## Run tests
-
+### Otros comandos útiles
 ```bash
-# unit tests
-$ npm run test
+# Inicia el servidor sin hot reload
+npm run start
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Modo debug
+npm run start:debug
 ```
 
-## Deployment
+El servidor estará disponible en: **http://localhost:3000**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 📚 API Endpoints
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Obtener Personajes
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+```http
+GET /characters
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+#### Parámetros de consulta (opcionales):
 
-## Resources
+| Parámetro | Tipo | Descripción | Ejemplo |
+|-----------|------|-------------|---------|
+| `page` | number | Número de página | `?page=1` |
+| `name` | string | Filtrar por nombre | `?name=rick` |
+| `status` | string | Filtrar por estado | `?status=alive` |
+| `species` | string | Filtrar por especie | `?species=human` |
+| `gender` | string | Filtrar por género | `?gender=male` |
 
-Check out a few resources that may come in handy when working with NestJS:
+#### Ejemplos de uso:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Obtener todos los personajes (primera página)
+curl http://localhost:3000/characters
 
-## Support
+# Buscar personajes por nombre
+curl http://localhost:3000/characters?name=rick
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# Filtrar por estado y especie
+curl http://localhost:3000/characters?status=alive&species=human
 
-## Stay in touch
+# Obtener página específica
+curl http://localhost:3000/characters?page=2
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🎯 Funcionalidades de RxJS implementadas
 
-## License
+- **retry()**: Reintentos automáticos en caso de fallo
+- **timeout()**: Timeout configurable para las peticiones
+- **catchError()**: Manejo centralizado de errores
+- **map()**: Transformación de datos
+- **shareReplay()**: Cache de respuestas
+- **tap()**: Logging y efectos secundarios
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── characters/           # Módulo de personajes
+│   ├── dto/             # Data Transfer Objects
+│   ├── characters.controller.ts
+│   ├── characters.service.ts
+│   └── characters.module.ts
+├── interfaces/          # Interfaces TypeScript
+├── utils/              # Utilidades
+└── main.ts            # Punto de entrada
+```
+
+## 🚧 Solución de Problemas
+
+### Error: "Cannot GET /"
+El endpoint raíz no está implementado. Usa `/characters` para acceder a la API.
+
+### Error de conexión a la API
+Verifica tu conexión a internet ya que la aplicación consume la API externa de Rick and Morty.
+
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👨‍💻 Autor
+
+- GitHub: [@stevenzuluaga](https://github.com/stevenzuluaga)
+
+## 🙏 Agradecimientos
+
+- [Rick and Morty API](https://rickandmortyapi.com/) por proporcionar la API gratuita
+- [NestJS](https://nestjs.com/) por el excelente framework
+- [RxJS](https://rxjs.dev/) por la programación reactiva
+
+---
+
+<div align="center">
+  <p>Hecho con ❤️ y ☕ para la comunidad de desarrolladores</p>
+</div>
