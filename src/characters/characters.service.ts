@@ -1,26 +1,51 @@
+import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { CreateCharacterDto } from './dto/create-character.dto';
-import { UpdateCharacterDto } from './dto/update-character.dto';
+import { AxiosError } from 'axios';
+import { firstValueFrom, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { CharactersResponse } from 'src/interfaces/character.interface';
+import { CharacterPagination } from 'src/interfaces/mapped-character.interface';
+import { mapAxiosErrorToMessage } from 'src/utils/error';
+import { FilterCharacterDto } from './dto/filter-character.dto';
 
 @Injectable()
 export class CharactersService {
-  create(createCharacterDto: CreateCharacterDto) {
-    return 'This action adds a new character';
+  private readonly url = 'https://rickandmortyapi.com/api/character/';
+  constructor(private readonly httpService: HttpService) {}
+
+  async findAll(pagination: FilterCharacterDto): Promise<CharacterPagination> {
+    const { page, count: limit, ...filters } = pagination;
+    const response = await firstValueFrom(
+      this.httpService
+        .get<CharactersResponse>(`${this.url}?page=${page}&limit=${limit}`, {
+          params: filters,
+        })
+        .pipe(
+          map((response) => this.mapToCharacterPagination(response.data)),
+          catchError((error: AxiosError) => {
+            mapAxiosErrorToMessage(error);
+            return throwError(() => error);
+          }),
+        ),
+    );
+    return response;
   }
 
-  findAll() {
-    return `This action returns all characters`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} character`;
-  }
-
-  update(id: number, updateCharacterDto: UpdateCharacterDto) {
-    return `This action updates a #${id} character`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} character`;
+  private mapToCharacterPagination(
+    data: CharactersResponse,
+  ): CharacterPagination {
+    const { info, results } = data;
+    const characters = results.map(
+      ({ id, name, status, species, type, image, gender }) => ({
+        id,
+        name,
+        status,
+        species,
+        type,
+        image,
+        gender,
+      }),
+    );
+    return { info, results: characters };
   }
 }
