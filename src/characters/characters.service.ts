@@ -101,7 +101,7 @@ export class CharactersService {
         name,
         status,
         species,
-        type,
+        type: type || 'Unknown',
         image,
         gender,
       }),
