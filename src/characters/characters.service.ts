@@ -11,7 +11,11 @@ import { FilterCharacterDto } from './dto/filter-character.dto';
 @Injectable()
 export class CharactersService {
   private readonly url = 'https://rickandmortyapi.com/api/character/';
-  constructor(private readonly httpService: HttpService) {}
+  private readonly httpService: HttpService;
+
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
+  }
 
   async findAll(pagination: FilterCharacterDto): Promise<CharacterPagination> {
     const { page, count: limit, ...filters } = pagination;

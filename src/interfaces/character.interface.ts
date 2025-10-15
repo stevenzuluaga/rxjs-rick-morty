@@ -28,7 +28,7 @@ export interface Character {
 export enum Gender {
   Female = 'Female',
   Male = 'Male',
-  Genderless = 'Genderless',  
+  Genderless = 'Genderless',
   Unknown = 'unknown',
 }
 
